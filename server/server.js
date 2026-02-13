@@ -6,7 +6,16 @@ import numerRoutes from "./src/routes/numerRoutes.js";
 
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: [
+    "https://numer-context-sharing-nbbkrd9ot-padma190s-projects.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
+app.options("*", cors());
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
