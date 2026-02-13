@@ -6,23 +6,10 @@ import numerRoutes from "./src/routes/numerRoutes.js";
 
 const app = express();
 
-// app.use(cors());
-app.use(cors({
-  origin: [
-    "https://numer-context-sharing-nbbkrd9ot-padma190s-projects.vercel.app"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
-
-app.options("*", cors());
+app.use(cors());
 app.use(express.json());
-app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
-});
 app.use("/api/numer", numerRoutes);
 
-// const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-export default app;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
