@@ -5,5 +5,5 @@ const api = axios.create({
   headers: { "Content-Type": "application/json" }
 });
 
-const sendNumer = (payload) => api.post("/numer", payload);
+const sendNumer = (payload) => api.post("/api/numer", payload);
 export default sendNumer;
